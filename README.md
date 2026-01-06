@@ -41,4 +41,4 @@ A running total is kept and the valid is pulsed after each bank has been process
 The testbench takes the test file obtained from the AoC site and sends it to the DUT until all banks have been sent.\
 Afterwards an expect test is used to verify functionality with both the integer result and the waveforms.\
 The generate.exe is set to use VHDL since I was curious as to what it would output. This meant I had to use the rtlmangle preprocessor to prevent illegal port names.\
-(My working repository I used for Day 3 is located here: https://github.com/Gruissan101/AoC_25_Day3_hardcaml)\
+(My working repository I used for Day 3 is located here: https://github.com/Gruissan101/AoC_25_Day3_hardcaml)
