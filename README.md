@@ -11,11 +11,11 @@ Ensure they are set to VHDL 2008.\
 I used QuestaSim to run the testbenches, use run -all and they will stop automatically.\
 Day 1 can be run in the Vivado simulator with the -maxdeltaid switch set to 100,000.\
 Day 11 takes around 25 mins to launch in the Vivado simulator so this is discouraged.\
-To use QuestaSim from Vivado, the vendor libraries must be precompiled (despite not using any IP), then point Vivado at the location of the compiled libraries.\
+To use QuestaSim from Vivado, the vendor libraries must be precompiled (despite not using any IP), then point Vivado at the location of the compiled libraries.
 
 Ensure the generics in the VHDL TBs are changed to the absolute path of the text file containing the test input obtained from the AdventOfCode site.\
 (In Questasim you can use the -G switch to do this without modifying the file)\
-For Day 3 in Hardcaml, edit "test_path" in test_total_joltage.ml to the correct path.\
+For Day 3 in Hardcaml, edit "test_path" in test_total_joltage.ml to the correct path.
 
 ## Design Info & Notes
 ### Day 1 Parts 1 & 2 - VHDL:
@@ -24,14 +24,14 @@ All modules have generics to make them paramaterisable.\
 It consits of multiple instantiations of a "calc_engine" module, which calculates the result of each move instruction by removing the max number of full turns, then calculating the final location.\
 The top level module instantiates 1 instance of the calc_engine for each instruction.\
 For part 2, I then added logic in the calc_engine to say how many times it crosses 0.\
-The TB is self-checking.\
+The TB is self-checking.
 
 ### Day 11 Part 1 - VHDL:
 For this problem, the logic explores each device and calculates how many of the connected devices have a path to the "out" device. The result is stored so that it doesn't have to explore each possible path entirely.\
 The path exploration is done in a sort of stack with a count so that the FSM can keep track of where it is.\
 To store the info about each device, a RAM is instantiated for each possible device, "aaa" : "zzz". Unfortunately, this means that there are large numbers of unused RAM. Each RAM asynchronously outputs a population count (to indicate how many devices that one is connected to).\
 The devices are encoded in a +1 offset base-26. (So that 0 is null)\
-I didn't have enough time to make a self-checking TB, so it outputs the result which could then be verified in software.\
+I didn't have enough time to make a self-checking TB, so it outputs the result which could then be verified in software.
 
 ### Day 3 Part 1 - Hardcaml
 Having used VHDL exclusively (with some exposure to Verilog), this was quite a daunting challenge. However the ample resources provided (thank you!) allowed me to complete part 1 in Hardcaml.\
